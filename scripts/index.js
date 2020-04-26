@@ -1,7 +1,16 @@
+const yargs = require('yargs');
+
 
 const experiment = () => {
-    const myArg = process.argv.slice(2);
-    console.log('myArg***', myArg);
+    const argv = yargs
+        .option('ids', {
+            alias: 'i',
+            description: 'Pass in the ids',
+            type: 'array'
+        })
+        .help()
+        .argv;
+    console.log('myArg***', argv.ids);
 };
 
 experiment();
